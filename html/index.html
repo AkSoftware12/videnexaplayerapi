@@ -24,8 +24,6 @@
             padding:18px 26px;
             background:rgba(255,255,255,0.02);
             backdrop-filter:blur(4px);
-            position:sticky;
-            top:0;
         }
         .logo{
             font-size:24px;
@@ -49,13 +47,7 @@
 
         /* HERO SECTION */
         .hero{
-            max-width:1200px;
-            margin:40px auto;
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:30px;
             align-items:center;
-            padding:0 20px;
         }
         .hero-left h1{
             font-size:40px;
@@ -158,11 +150,27 @@
 </header>
 
 
+<style>
+    .hero {
+        display: flex;
+        width: 100%;
+    }
+    .hero-left{
+    width: 100%;
+    }
+
+
+    .hero-left img {
+
+        width: 100%;
+        object-fit: cover;
+        display: block;
+    }
+</style>
+
 <section class="hero">
     <div class="hero-left">
-        <img src="https://play-lh.googleusercontent.com/VbzBK5gxaxgOKjjXn4FrYLRINu6kym7v_ivB_QOq4xqkPyY29rIA-eDl9Dze_5-rgNklMsvc-RB0DzAVMXbW=w2560-h1440-rw" class="girl">
-
-        <img src="image/logo.webp" >
+        <img src="https://play-lh.googleusercontent.com/VbzBK5gxaxgOKjjXn4FrYLRINu6kym7v_ivB_QOq4xqkPyY29rIA-eDl9Dze_5-rgNklMsvc-RB0DzAVMXbW=w2560-h1440-rw">
 
         <h1>Fast & Powerful Video Player</h1>
         <p>Enjoy background playback, folder explorer, floating play, and fast-forward gestures.</p>
@@ -179,7 +187,6 @@
     </div>
 
     <div class="hero-images">
-        <img src="https://images.unsplash.com/photo-1607082349566-187708b87c9d" class="girl">
         <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7" class="phone">
     </div>
 </section>
