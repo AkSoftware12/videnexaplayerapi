@@ -1,75 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>RocksPlayer — Clone</title>
-    <meta name="description" content="Simple RocksPlayer-like site with gallery, custom player and playlist." />
+    <meta name="description" content="RocksPlayer-like clone with hero, custom player and playlist." />
     <style>
         :root{
-          --bg:#0f1724;
-          --card:#111827;
-          --accent:#ff4d6d;
-          --muted:#9ca3af;
+          --bg1:#07101a;
+          --bg2:#031118;
+          --card:#071827;
+          --muted:#9aa4ad;
+          --accent:#ff5a6b;
           --glass: rgba(255,255,255,0.03);
-          --radius:12px;
+          --radius:14px;
           font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
           color-scheme: dark;
         }
         *{box-sizing:border-box}
-        html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#06070a);color:#fff}
-        header{display:flex;align-items:center;gap:20px;padding:18px 28px;background:transparent}
+        html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:#fff}
+        header{
+          display:flex;align-items:center;gap:20px;padding:18px 28px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+          position:sticky;top:0;z-index:50;backdrop-filter:blur(6px);
+        }
         .logo{display:flex;align-items:center;gap:12px}
-        .logo img{width:40px;height:40px;border-radius:8px;object-fit:cover}
-        .brand{font-weight:700;font-size:18px;letter-spacing:0.2px}
-        nav{margin-left:auto;display:flex;gap:12px;align-items:center}
-        nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
+        .logo img{width:44px;height:44px;border-radius:10px;object-fit:cover}
+        .brand{font-weight:800;font-size:18px;letter-spacing:0.6px}
+        nav{margin-left:auto;display:flex;gap:16px;align-items:center}
+        nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
         nav a:hover{color:#fff;background:rgba(255,255,255,0.03)}
 
-        .hero{max-width:1100px;margin:28px auto;padding:28px;display:grid;grid-template-columns:1fr 420px;gap:28px}
-        .card{background:var(--card);border-radius:var(--radius);padding:18px}
-        .hero-left h1{margin:0 0 10px;font-size:34px}
-        .hero-left p{color:var(--muted);margin:0 0 18px}
+        /* hero */
+        .hero-wrap{max-width:1300px;margin:28px auto;padding:0 18px}
+        .hero{
+          background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+          border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1fr 520px;gap:28px;padding:28px;
+          align-items:center;box-shadow:0 8px 30px rgba(0,0,0,0.5);
+        }
+        .hero-left{padding-right:8px}
+        .headline{font-size:34px;margin:0 0 12px;line-height:1.05}
+        .sub{color:var(--muted);margin:0 0 18px}
+        .search-row{display:flex;gap:12px}
+        .search-row input{flex:1;padding:12px;border-radius:12px;border:none;background:var(--glass);color:#fff}
+        .btn{background:var(--accent);border:none;color:#fff;padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:700}
+        .muted-small{color:var(--muted);font-size:13px}
 
-        .search-bar{display:flex;gap:12px}
-        .search-bar input[type=text]{flex:1;padding:12px;border-radius:10px;border:none;background:var(--glass);color:#fff}
-        .btn{background:var(--accent);border:none;color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer}
+        /* right visual similar to rocksplayer hero */
+        .hero-right{position:relative;display:flex;align-items:center;justify-content:center;min-height:420px}
+        .hero-phone{
+          position:relative;width:420px;height:800px;border-radius:28px;overflow:hidden;box-shadow: 0 18px 60px rgba(0,0,0,0.6);
+          transform:translateY(0);
+          background:linear-gradient(180deg,#0b0f12,#0b0f12);
+        }
+        .hero-phone img{width:100%;height:100%;object-fit:cover;display:block}
+        .hero-person{
+          position:absolute;right:-10px;top:36px;width:520px;height:520px;border-radius:18px;overflow:visible;pointer-events:none;
+          background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+        }
+        .hero-person img{width:100%;height:100%;object-fit:cover;display:block;filter:drop-shadow(0 18px 60px rgba(0,0,0,0.6))}
 
-        .player-box{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:10px;border-radius:12px;display:flex;flex-direction:column;gap:12px}
+        /* player card (below hero-left content) */
+        .player-card{margin-top:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;padding:12px}
         .video-wrap{background:#000;border-radius:8px;overflow:hidden;position:relative}
-        video{width:100%;height:240px;display:block;background:#000}
-
-        .controls{display:flex;align-items:center;gap:10px;padding:8px}
+        video{width:100%;height:280px;display:block;background:#000}
+        .controls{display:flex;align-items:center;gap:10px;padding:10px}
         .time{font-size:13px;color:var(--muted);min-width:54px;text-align:center}
         .seek{flex:1}
         input[type=range]{width:100%}
 
-        .gallery{max-width:1100px;margin:18px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding:0 18px}
-        .tile{background:var(--card);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .18s}
-        .tile:hover{transform:translateY(-6px)}
-        .thumb{height:140px;background:#000;display:flex;align-items:center;justify-content:center;position:relative}
-        .thumb img{width:100%;height:100%;object-fit:cover}
-        .tile .meta{padding:12px}
-        .title{font-weight:600}
-        .sub{color:var(--muted);font-size:13px;margin-top:6px}
-        .uploader{display:flex;gap:8px;align-items:center;margin-top:10px}
+        .meta-row{display:flex;align-items:center;gap:12px;margin-top:10px}
         .uploader img{width:36px;height:36px;border-radius:50%}
 
-        footer{max-width:1100px;margin:30px auto;color:var(--muted);padding:18px}
+        /* gallery */
+        .gallery{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+        .tile{background:var(--card);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .18s}
+        .tile:hover{transform:translateY(-6px)}
+        .thumb{height:140px;background:#0b0f12;display:flex;align-items:center;justify-content:center;position:relative}
+        .thumb img{width:100%;height:100%;object-fit:cover}
+        .meta{padding:12px}
+        .title{font-weight:700}
+        .sub{color:var(--muted);font-size:13px;margin-top:6px}
 
-        /* responsive */
-        @media (max-width:900px){
-          .hero{grid-template-columns:1fr;}
-          video{height:200px}
+        /* playlist */
+        .playlist{display:flex;gap:8px;overflow:auto;padding:8px 0}
+        .pl-btn{padding:8px 12px;border-radius:10px;border:none;background:rgba(255,255,255,0.03);color:var(--muted);cursor:pointer;font-weight:600}
+        .pl-btn.active{background:var(--accent);color:#fff}
+
+        footer{max-width:1300px;margin:28px auto;color:var(--muted);padding:18px;text-align:center}
+
+        @media (max-width:1100px){
+          .hero{grid-template-columns:1fr; padding:18px}
+          .hero-right{order:-1;margin-bottom:10px}
+          video{height:210px}
         }
     </style>
 </head>
 <body>
 <header>
     <div class="logo">
-        <img src="logo.png" alt="logo" />
+        <img src="logo.png" alt="logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%%22http://www.w3.org/2000/svg%%22 width=44 height=44><rect rx=8 width=44 height=44 fill=%%22%2300333a%%22 /></svg>'" />
         <div class="brand">RocksPlayer</div>
     </div>
+
     <nav>
         <a href="#gallery">Discover</a>
         <a href="#features">Features</a>
@@ -78,81 +110,97 @@
 </header>
 
 <main>
-    <section class="hero">
-        <div class="hero-left card">
-            <h1>Modern Online Video Player</h1>
-            <p>Fast, responsive video player with playlist, custom controls, quality selector and simple hosting support. Use the built-in demo videos or replace with your own URLs.</p>
+    <div class="hero-wrap">
+        <section class="hero">
+            <div class="hero-left">
+                <h1 class="headline">Modern Online Video Player</h1>
+                <p class="sub">Fast, responsive video player with playlist, custom controls, quality selector and simple hosting support. Use the built-in demo videos or replace with your own URLs.</p>
 
-            <div class="search-bar" style="margin-bottom:12px">
-                <input id="search" type="text" placeholder="Search videos, paste URL or drag & drop..." />
-                <button class="btn" id="btnLoad">Play URL</button>
-            </div>
-
-            <div class="card" style="margin-top:10px">
-                <h3 style="margin:0 0 8px">How it works</h3>
-                <ol style="color:var(--muted);margin:0;padding-left:18px">
-                    <li>Paste a direct MP4/MOV/WebM URL in the search box and click Play.</li>
-                    <li>Or click any video in the gallery to load into player.</li>
-                    <li>Use controls for seek, volume and fullscreen.</li>
-                </ol>
-            </div>
-        </div>
-
-        <aside class="card player-box">
-            <div class="video-wrap">
-                <video id="mainVideo" controls preload="metadata">
-                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-                    Your browser does not support video tag.
-                </video>
-            </div>
-
-            <div class="controls">
-                <button id="playPause" class="btn">Play</button>
-                <div class="time" id="current">0:00</div>
-                <div class="seek"><input id="seekRange" type="range" min="0" max="100" value="0" /></div>
-                <div class="time" id="duration">0:00</div>
-            </div>
-
-            <div style="display:flex;gap:8px;align-items:center;justify-content:space-between">
-                <div style="display:flex;gap:8px;align-items:center">
-                    <label style="color:var(--muted);font-size:13px">Volume</label>
-                    <input id="volRange" type="range" min="0" max="1" step="0.01" value="1" style="width:110px" />
+                <div class="search-row">
+                    <input id="search" placeholder="Search videos, paste URL or drag & drop..." />
+                    <button class="btn" id="btnLoad">Play URL</button>
                 </div>
 
-                <div style="display:flex;gap:8px;align-items:center">
-                    <button id="btnLoop" class="btn" style="background:#2b3440">Loop</button>
-                    <button id="btnFS" class="btn" style="background:#1f2937">Fullscreen</button>
+                <div class="player-card">
+                    <div class="video-wrap">
+                        <video id="mainVideo" preload="metadata" playsinline controls>
+                            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <div class="controls">
+                        <button id="playPause" class="btn" style="background:#1f2937;padding:8px 12px">Play</button>
+                        <div class="time" id="current">0:00</div>
+                        <div class="seek"><input id="seekRange" type="range" min="0" max="100" value="0" /></div>
+                        <div class="time" id="duration">0:00</div>
+                    </div>
+
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                        <div style="display:flex;gap:8px;align-items:center">
+                            <label class="muted-small">Volume</label>
+                            <input id="volRange" type="range" min="0" max="1" step="0.01" value="1" style="width:120px" />
+                        </div>
+                        <div style="display:flex;gap:8px;align-items:center">
+                            <button id="btnLoop" class="btn" style="background:#2b3440;padding:8px 10px;opacity:0.8">Loop</button>
+                            <button id="btnFS" class="btn" style="background:#1f2937;padding:8px 10px">Fullscreen</button>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:10px">
+                        <label class="muted-small">Playlist</label>
+                        <div id="playlist" class="playlist" aria-label="playlist"></div>
+                    </div>
+
+                    <!-- pick from device -->
+                    <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+                        <button id="pickerBtn" class="btn" style="background:#0b6bff;padding:8px 12px">Pick Videos from Device</button>
+                        <div class="muted-small">or drag & drop files/URLs anywhere</div>
+                    </div>
+                </div>
+
+                <div class="meta-row" style="margin-top:12px">
+                    <div class="uploader"><img src="https://avatars.dicebear.com/api/identicon/demo.svg" alt="u" /></div>
+                    <div>
+                        <div style="font-weight:700">Demo uploader</div>
+                        <div class="muted-small">Hosted demo videos • Replace with your own</div>
+                    </div>
                 </div>
             </div>
 
-            <div style="margin-top:8px">
-                <label style="color:var(--muted);font-size:13px">Playlist</label>
-                <div id="playlist" style="display:flex;gap:8px;margin-top:8px;overflow:auto"></div>
+            <div class="hero-right" aria-hidden="true">
+                <div class="hero-phone">
+                    <img src="hero-phone.png" alt="phone mockup" onerror="this.style.background='linear-gradient(180deg,#0b1220,#1b2a33)';this.src='';" />
+                </div>
+
+                <div class="hero-person">
+                    <img src="hero-person.png" alt="person" onerror="this.style.background='linear-gradient(90deg,#0c1720,#0b1930)';this.src='';" />
+                </div>
             </div>
-        </aside>
-    </section>
+        </section>
 
-    <section id="gallery" class="gallery" aria-label="video gallery">
-        <!-- demo tiles inserted by JS -->
-    </section>
+        <section id="gallery" style="margin-top:20px">
+            <div class="gallery" id="galleryGrid"></div>
+        </section>
 
-    <section id="features" class="card" style="max-width:1100px;margin:18px auto">
-        <h3 style="margin-top:0">Features</h3>
-        <ul style="color:var(--muted)">
-            <li>Custom controls with seek, volume, fullscreen and loop.</li>
-            <li>Playlist support and quick load from gallery.</li>
-            <li>Drag & drop video URLs or files to play instantly.</li>
-            <li>Lightweight single-file clone — easy to customize and host.</li>
-        </ul>
-    </section>
+        <section id="features" class="card" style="margin-top:22px;padding:18px;background:transparent">
+            <h3 style="margin:0 0 8px">Features</h3>
+            <ul style="color:var(--muted);margin:0;padding-left:18px">
+                <li>Custom controls with seek, volume, fullscreen and loop.</li>
+                <li>Playlist support and quick load from gallery.</li>
+                <li>Drag & drop video URLs or files to play instantly.</li>
+                <li>Pick multiple videos from device and save to playlist.</li>
+            </ul>
+        </section>
 
-    <footer>
-        <div>Made with ♥ — Replace assets and video links to deploy on your domain.</div>
-    </footer>
+        <footer>
+            Made with ♥ — Replace assets (logo.png, hero-phone.png, hero-person.png) and VIDEO_DATA with your hosted links.
+        </footer>
+    </div>
 </main>
 
 <script>
-    // Demo video data (replace with your own hosted mp4 urls or API)
+    // demo data - replace with your links or API
     const VIDEO_DATA = [
       {
         id: 'flower',
@@ -162,22 +210,23 @@
         duration: '0:18'
       },
       {
-        id: 'bigbuck',
-        title: 'Big Buck Bunny (Demo)',
+        id: 'sintel',
+        title: 'Sintel Trailer (Demo)',
         src: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
         thumb: 'https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217',
         duration: '0:30'
       },
       {
-        id: 'sample',
-        title: 'Sample Video',
+        id: 'road',
+        title: 'Lonely Road (Demo)',
         src: 'https://cdn.coverr.co/videos/coverr-a-lonely-road-1574/1080p.mp4',
         thumb: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=60',
         duration: '0:12'
       }
     ];
 
-    const galleryEl = document.getElementById('gallery');
+    // elements
+    const galleryGrid = document.getElementById('galleryGrid');
     const mainVideo = document.getElementById('mainVideo');
     const playPause = document.getElementById('playPause');
     const seekRange = document.getElementById('seekRange');
@@ -189,12 +238,14 @@
     const btnFS = document.getElementById('btnFS');
     const search = document.getElementById('search');
     const btnLoad = document.getElementById('btnLoad');
+    const pickerBtn = document.getElementById('pickerBtn');
 
     let isLoop = false;
 
     function formatTime(s){
       if(!s || isNaN(s)) return '0:00';
-      const m = Math.floor(s/60); const sec = Math.floor(s%60).toString().padStart(2,'0');
+      const m = Math.floor(s/60);
+      const sec = Math.floor(s%60).toString().padStart(2,'0');
       return `${m}:${sec}`;
     }
 
@@ -207,35 +258,34 @@
           <div class="meta">
             <div class="title">${v.title}</div>
             <div class="sub">${v.duration} • Demo</div>
-            <div class="uploader"><img src="https://avatars.dicebear.com/api/identicon/${v.id}.svg" alt="u"/><div style="font-size:13px;color:var(--muted)">Demo uploader</div></div>
           </div>`;
-        t.addEventListener('click',()=>{loadVideo(v);});
-        galleryEl.appendChild(t);
+        t.addEventListener('click',()=>{ loadVideo(v); });
+        galleryGrid.appendChild(t);
       });
     }
 
     function loadVideo(v){
-      // add to playlist
       appendPlaylistItem(v);
-      // load
       mainVideo.src = v.src;
       mainVideo.play().catch(()=>{});
       playPause.textContent = 'Pause';
+      // mark active playlist
+      Array.from(document.querySelectorAll('.pl-btn')).forEach(b=>b.classList.remove('active'));
+      const el = document.getElementById('pl-'+v.id);
+      if(el) el.classList.add('active');
     }
 
-    // playlist
     function appendPlaylistItem(v){
-      // check if already exists
       if(document.getElementById('pl-'+v.id)) return;
       const btn = document.createElement('button');
       btn.id = 'pl-'+v.id;
+      btn.className = 'pl-btn';
       btn.textContent = v.title;
-      btn.style.padding='8px 10px';btn.style.borderRadius='8px';btn.style.border='none';btn.style.background='rgba(255,255,255,0.03)';btn.style.color='var(--muted)';btn.style.cursor='pointer';
-      btn.addEventListener('click',()=>{ mainVideo.src = v.src; mainVideo.play(); playPause.textContent='Pause';});
+      btn.addEventListener('click',()=>{ mainVideo.src = v.src; mainVideo.play(); playPause.textContent='Pause'; document.querySelectorAll('.pl-btn').forEach(x=>x.classList.remove('active')); btn.classList.add('active');});
       playlistEl.appendChild(btn);
     }
 
-    // player events
+    // events
     playPause.addEventListener('click',()=>{
       if(mainVideo.paused){ mainVideo.play(); playPause.textContent='Pause'; }
       else { mainVideo.pause(); playPause.textContent='Play'; }
@@ -266,10 +316,7 @@
       else{ mainVideo.requestFullscreen().catch(()=>{}); }
     });
 
-    // load demo on start
-    buildGallery();
-
-    // search / play by URL
+    // search / load by URL
     btnLoad.addEventListener('click',()=>{
       const val = search.value.trim();
       if(!val) return alert('Paste a direct MP4/WebM URL or type a term to search.');
@@ -277,7 +324,6 @@
         mainVideo.src = val;
         mainVideo.play();
         playPause.textContent='Pause';
-        // add to playlist as temp
         const tmp = {id: 'u-'+Date.now(), title: val.split('/').pop(), src: val};
         appendPlaylistItem(tmp);
       } else {
@@ -285,57 +331,51 @@
       }
     });
 
-    // drag & drop support for files/urls
-    document.addEventListener('dragover',(e)=>{e.preventDefault();});
+    // drag & drop support
+    document.addEventListener('dragover',(e)=>{ e.preventDefault(); });
     document.addEventListener('drop',(e)=>{
       e.preventDefault();
       const f = e.dataTransfer.files && e.dataTransfer.files[0];
       if(f){
         const url = URL.createObjectURL(f);
+        const v = { id: 'local-'+Date.now()+Math.random(), title: f.name, src: url };
+        appendPlaylistItem(v);
         mainVideo.src = url; mainVideo.play(); playPause.textContent='Pause';
-        const tmp = {id:'file-'+Date.now(), title:f.name, src:url}; appendPlaylistItem(tmp);
       } else {
         const text = e.dataTransfer.getData('text');
         if(text && text.startsWith('http')){ mainVideo.src = text; mainVideo.play(); playPause.textContent='Pause'; }
       }
     });
 
-    // keyboard shortcuts
+    // keyboard
     window.addEventListener('keydown',(e)=>{
       if(e.code === 'Space'){ e.preventDefault(); if(mainVideo.paused) mainVideo.play(); else mainVideo.pause(); playPause.textContent = mainVideo.paused? 'Play' : 'Pause'; }
       if(e.key === 'ArrowRight'){ mainVideo.currentTime += 5; }
       if(e.key === 'ArrowLeft'){ mainVideo.currentTime -= 5; }
     });
 
-    // small helpers: replace logo, videos as needed
-    // To deploy: replace logo.png and VIDEO_DATA entries with your hosted assets.
-    // === NEW FEATURE: System se video fetch karke list me dikhana ===
-  // Button add — HTML me playlist ke upar ek button inject karte hain
-  const pickerBtn = document.createElement('button');
-  pickerBtn.textContent = 'Pick Videos from Device';
-  pickerBtn.className = 'btn';
-  pickerBtn.style.margin = '10px 0';
-  document.querySelector('.player-box').prepend(pickerBtn);
+    // pick from device
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'video/*';
+    fileInput.multiple = true;
+    fileInput.style.display = 'none';
+    document.body.appendChild(fileInput);
 
-  // Hidden input for picking multiple files
-  const fileInput = document.createElement('input');
-  fileInput.type = 'file';
-  fileInput.accept = 'video/*';
-  fileInput.multiple = true;
-  fileInput.style.display = 'none';
-  document.body.appendChild(fileInput);
-
-  pickerBtn.addEventListener('click',()=> fileInput.click());
-
-  fileInput.addEventListener('change',()=>{
+    pickerBtn.addEventListener('click',()=> fileInput.click());
+    fileInput.addEventListener('change',()=>{
       const files = Array.from(fileInput.files);
       files.forEach(f=>{
-          const url = URL.createObjectURL(f);
-          const v = { id: 'local-'+Date.now()+Math.random(), title: f.name, src: url };
-          appendPlaylistItem(v);
+        const url = URL.createObjectURL(f);
+        const v = { id: 'local-'+Date.now()+Math.random(), title: f.name, src: url };
+        appendPlaylistItem(v);
       });
-  });
+    });
 
+    // init
+    buildGallery();
+    // load first demo automatically
+    if(VIDEO_DATA.length) loadVideo(VIDEO_DATA[0]);
 </script>
 </body>
 </html>
