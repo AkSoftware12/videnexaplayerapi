@@ -309,6 +309,33 @@
 
     // small helpers: replace logo, videos as needed
     // To deploy: replace logo.png and VIDEO_DATA entries with your hosted assets.
+    // === NEW FEATURE: System se video fetch karke list me dikhana ===
+  // Button add — HTML me playlist ke upar ek button inject karte hain
+  const pickerBtn = document.createElement('button');
+  pickerBtn.textContent = 'Pick Videos from Device';
+  pickerBtn.className = 'btn';
+  pickerBtn.style.margin = '10px 0';
+  document.querySelector('.player-box').prepend(pickerBtn);
+
+  // Hidden input for picking multiple files
+  const fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.accept = 'video/*';
+  fileInput.multiple = true;
+  fileInput.style.display = 'none';
+  document.body.appendChild(fileInput);
+
+  pickerBtn.addEventListener('click',()=> fileInput.click());
+
+  fileInput.addEventListener('change',()=>{
+      const files = Array.from(fileInput.files);
+      files.forEach(f=>{
+          const url = URL.createObjectURL(f);
+          const v = { id: 'local-'+Date.now()+Math.random(), title: f.name, src: url };
+          appendPlaylistItem(v);
+      });
+  });
+
 </script>
 </body>
 </html>
