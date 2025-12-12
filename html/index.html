@@ -168,10 +168,10 @@
     display: flex;
     gap: 10px;
     padding: 4px;
+        align-items: center;
 }
 img#home_google {
-    width: calc(1vw + 210px);
-    height: 75px;
+    max-width: 390px;
     margin: 20px auto;
     padding: 2px;
     display: block;
@@ -194,26 +194,26 @@ img#home_google {
 </style>
 
 
-<div class="videoContainer"><p class="videoText_new" style="font-weight: lighter; font-size: 20px;">
-    Enhance and enjoy an amazing experience with the All-in-One media player. Download Rocks Video
-    Player, your all-time entertainment hub.</p>
-    <div class="download_options"><a
-            href="https://apps.apple.com/in/app/hd-video-player-all-format/id6479863307"
-            target="_blank" rel="noreferrer nofollow"> <img src="./image/app_store.png"
-                                                            alt="App Store | ASD Dev "
-                                                            id="home_google"></a><a
-            href="http://tinyurl.com/rocksplayer-website-data-2024" target="_blank"
-            rel="noreferrer nofollow"> <img src="./image/google_play.png"
-                                            alt="Google Play Store | ASD Dev " id="home_google"></a>
-    </div>
-</div>
+
 
 <section class="hero">
     <div class="hero-left">
         <img src="https://play-lh.googleusercontent.com/VbzBK5gxaxgOKjjXn4FrYLRINu6kym7v_ivB_QOq4xqkPyY29rIA-eDl9Dze_5-rgNklMsvc-RB0DzAVMXbW=w2560-h1440-rw">
-
-        <h1>Fast & Powerful Video Player</h1>
-        <p>Enjoy background playback, folder explorer, floating play, and fast-forward gestures.</p>
+        <div class="videoContainer"><p class="videoText_new" style="font-weight: lighter; font-size: 20px;">
+            Enhance and enjoy an amazing experience with the All-in-One media player. Download Rocks Video
+            Player, your all-time entertainment hub.</p>
+            <div class="download_options"><a
+                    href="https://apps.apple.com/in/app/hd-video-player-all-format/id6479863307"
+                    target="_blank" rel="noreferrer nofollow"> <img src="./image/app_store.png"
+                                                                    alt="App Store | ASD Dev "
+                                                                    id="home_google"></a><a
+                    href="http://tinyurl.com/rocksplayer-website-data-2024" target="_blank"
+                    rel="noreferrer nofollow"> <img src="./image/google_play.png"
+                                                    alt="Google Play Store | ASD Dev " id="home_google"></a>
+            </div>
+        </div>
+        <h1 style="text-align: center;">Fast & Powerful Video Player</h1>
+        <p style="text-align: center;">Enjoy background playback, folder explorer, floating play, and fast-forward gestures.</p>
 
         <div class="player-box">
             <video id="mainVid" controls>
@@ -232,6 +232,8 @@ img#home_google {
         <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7" class="phone">
     </div>
 </section>
+
+
 
 <h2 style="max-width:1200px;margin:20px auto 10px;padding:0 20px;">Your Video Gallery</h2>
 
