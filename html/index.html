@@ -1,109 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Video Player</title>
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RocksPlayer — Clone</title>
+    <meta name="description" content="Simple RocksPlayer-like site with gallery, custom player and playlist." />
     <style>
-        body {
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: white;
-            font-family: Arial;
+        :root{
+          --bg:#0f1724;
+          --card:#111827;
+          --accent:#ff4d6d;
+          --muted:#9ca3af;
+          --glass: rgba(255,255,255,0.03);
+          --radius:12px;
+          font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+          color-scheme: dark;
         }
+        *{box-sizing:border-box}
+        html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#06070a);color:#fff}
+        header{display:flex;align-items:center;gap:20px;padding:18px 28px;background:transparent}
+        .logo{display:flex;align-items:center;gap:12px}
+        .logo img{width:40px;height:40px;border-radius:8px;object-fit:cover}
+        .brand{font-weight:700;font-size:18px;letter-spacing:0.2px}
+        nav{margin-left:auto;display:flex;gap:12px;align-items:center}
+        nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
+        nav a:hover{color:#fff;background:rgba(255,255,255,0.03)}
 
-        .player-container {
-            width: 80%;
-            max-width: 700px;
-            position: relative;
-        }
+        .hero{max-width:1100px;margin:28px auto;padding:28px;display:grid;grid-template-columns:1fr 420px;gap:28px}
+        .card{background:var(--card);border-radius:var(--radius);padding:18px}
+        .hero-left h1{margin:0 0 10px;font-size:34px}
+        .hero-left p{color:var(--muted);margin:0 0 18px}
 
-        video {
-            width: 100%;
-            border-radius: 10px;
-        }
+        .search-bar{display:flex;gap:12px}
+        .search-bar input[type=text]{flex:1;padding:12px;border-radius:10px;border:none;background:var(--glass);color:#fff}
+        .btn{background:var(--accent);border:none;color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer}
 
-        .controls {
-            position: absolute;
-            bottom: 10px;
-            width: 95%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.5);
-            padding: 10px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .player-box{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:10px;border-radius:12px;display:flex;flex-direction:column;gap:12px}
+        .video-wrap{background:#000;border-radius:8px;overflow:hidden;position:relative}
+        video{width:100%;height:240px;display:block;background:#000}
 
-        button {
-            background: #ff0040;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-        }
+        .controls{display:flex;align-items:center;gap:10px;padding:8px}
+        .time{font-size:13px;color:var(--muted);min-width:54px;text-align:center}
+        .seek{flex:1}
+        input[type=range]{width:100%}
 
-        input[type="range"] {
-            width: 100%;
+        .gallery{max-width:1100px;margin:18px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding:0 18px}
+        .tile{background:var(--card);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .18s}
+        .tile:hover{transform:translateY(-6px)}
+        .thumb{height:140px;background:#000;display:flex;align-items:center;justify-content:center;position:relative}
+        .thumb img{width:100%;height:100%;object-fit:cover}
+        .tile .meta{padding:12px}
+        .title{font-weight:600}
+        .sub{color:var(--muted);font-size:13px;margin-top:6px}
+        .uploader{display:flex;gap:8px;align-items:center;margin-top:10px}
+        .uploader img{width:36px;height:36px;border-radius:50%}
+
+        footer{max-width:1100px;margin:30px auto;color:var(--muted);padding:18px}
+
+        /* responsive */
+        @media (max-width:900px){
+          .hero{grid-template-columns:1fr;}
+          video{height:200px}
         }
     </style>
-
 </head>
 <body>
-
-<div class="player-container">
-    <video id="videoPlayer" src="yourvideo.mp4"></video>
-
-    <div class="controls">
-        <button onclick="togglePlay()">Play / Pause</button>
-
-        <input type="range" id="seekBar" value="0" onchange="seekVideo()">
-
-        <input type="range" id="volumeBar" min="0" max="1" step="0.1" value="1" onchange="setVolume()">
-
-        <button onclick="goFullScreen()">Fullscreen</button>
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="logo" />
+        <div class="brand">RocksPlayer</div>
     </div>
-</div>
+    <nav>
+        <a href="#gallery">Discover</a>
+        <a href="#features">Features</a>
+        <a href="#upload" id="upload-link">Upload</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-left card">
+            <h1>Modern Online Video Player</h1>
+            <p>Fast, responsive video player with playlist, custom controls, quality selector and simple hosting support. Use the built-in demo videos or replace with your own URLs.</p>
+
+            <div class="search-bar" style="margin-bottom:12px">
+                <input id="search" type="text" placeholder="Search videos, paste URL or drag & drop..." />
+                <button class="btn" id="btnLoad">Play URL</button>
+            </div>
+
+            <div class="card" style="margin-top:10px">
+                <h3 style="margin:0 0 8px">How it works</h3>
+                <ol style="color:var(--muted);margin:0;padding-left:18px">
+                    <li>Paste a direct MP4/MOV/WebM URL in the search box and click Play.</li>
+                    <li>Or click any video in the gallery to load into player.</li>
+                    <li>Use controls for seek, volume and fullscreen.</li>
+                </ol>
+            </div>
+        </div>
+
+        <aside class="card player-box">
+            <div class="video-wrap">
+                <video id="mainVideo" controls preload="metadata">
+                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+                    Your browser does not support video tag.
+                </video>
+            </div>
+
+            <div class="controls">
+                <button id="playPause" class="btn">Play</button>
+                <div class="time" id="current">0:00</div>
+                <div class="seek"><input id="seekRange" type="range" min="0" max="100" value="0" /></div>
+                <div class="time" id="duration">0:00</div>
+            </div>
+
+            <div style="display:flex;gap:8px;align-items:center;justify-content:space-between">
+                <div style="display:flex;gap:8px;align-items:center">
+                    <label style="color:var(--muted);font-size:13px">Volume</label>
+                    <input id="volRange" type="range" min="0" max="1" step="0.01" value="1" style="width:110px" />
+                </div>
+
+                <div style="display:flex;gap:8px;align-items:center">
+                    <button id="btnLoop" class="btn" style="background:#2b3440">Loop</button>
+                    <button id="btnFS" class="btn" style="background:#1f2937">Fullscreen</button>
+                </div>
+            </div>
+
+            <div style="margin-top:8px">
+                <label style="color:var(--muted);font-size:13px">Playlist</label>
+                <div id="playlist" style="display:flex;gap:8px;margin-top:8px;overflow:auto"></div>
+            </div>
+        </aside>
+    </section>
+
+    <section id="gallery" class="gallery" aria-label="video gallery">
+        <!-- demo tiles inserted by JS -->
+    </section>
+
+    <section id="features" class="card" style="max-width:1100px;margin:18px auto">
+        <h3 style="margin-top:0">Features</h3>
+        <ul style="color:var(--muted)">
+            <li>Custom controls with seek, volume, fullscreen and loop.</li>
+            <li>Playlist support and quick load from gallery.</li>
+            <li>Drag & drop video URLs or files to play instantly.</li>
+            <li>Lightweight single-file clone — easy to customize and host.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <div>Made with ♥ — Replace assets and video links to deploy on your domain.</div>
+    </footer>
+</main>
 
 <script>
-    const video = document.getElementById("videoPlayer");
-    const seekBar = document.getElementById("seekBar");
-    const volumeBar = document.getElementById("volumeBar");
+    // Demo video data (replace with your own hosted mp4 urls or API)
+    const VIDEO_DATA = [
+      {
+        id: 'flower',
+        title: 'Flower (Demo)',
+        src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+        thumb: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60',
+        duration: '0:18'
+      },
+      {
+        id: 'bigbuck',
+        title: 'Big Buck Bunny (Demo)',
+        src: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+        thumb: 'https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217',
+        duration: '0:30'
+      },
+      {
+        id: 'sample',
+        title: 'Sample Video',
+        src: 'https://cdn.coverr.co/videos/coverr-a-lonely-road-1574/1080p.mp4',
+        thumb: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=60',
+        duration: '0:12'
+      }
+    ];
 
-    function togglePlay() {
-        if (video.paused) {
-            video.play();
-        } else {
-            video.pause();
-        }
+    const galleryEl = document.getElementById('gallery');
+    const mainVideo = document.getElementById('mainVideo');
+    const playPause = document.getElementById('playPause');
+    const seekRange = document.getElementById('seekRange');
+    const currentEl = document.getElementById('current');
+    const durationEl = document.getElementById('duration');
+    const volRange = document.getElementById('volRange');
+    const playlistEl = document.getElementById('playlist');
+    const btnLoop = document.getElementById('btnLoop');
+    const btnFS = document.getElementById('btnFS');
+    const search = document.getElementById('search');
+    const btnLoad = document.getElementById('btnLoad');
+
+    let isLoop = false;
+
+    function formatTime(s){
+      if(!s || isNaN(s)) return '0:00';
+      const m = Math.floor(s/60); const sec = Math.floor(s%60).toString().padStart(2,'0');
+      return `${m}:${sec}`;
     }
 
-    video.addEventListener("timeupdate", () => {
-        seekBar.value = video.currentTime / video.duration * 100;
+    // build gallery
+    function buildGallery(){
+      VIDEO_DATA.forEach(v=>{
+        const t = document.createElement('article'); t.className='tile';
+        t.innerHTML = `
+          <div class="thumb"><img src="${v.thumb}" alt="${v.title}"></div>
+          <div class="meta">
+            <div class="title">${v.title}</div>
+            <div class="sub">${v.duration} • Demo</div>
+            <div class="uploader"><img src="https://avatars.dicebear.com/api/identicon/${v.id}.svg" alt="u"/><div style="font-size:13px;color:var(--muted)">Demo uploader</div></div>
+          </div>`;
+        t.addEventListener('click',()=>{loadVideo(v);});
+        galleryEl.appendChild(t);
+      });
+    }
+
+    function loadVideo(v){
+      // add to playlist
+      appendPlaylistItem(v);
+      // load
+      mainVideo.src = v.src;
+      mainVideo.play().catch(()=>{});
+      playPause.textContent = 'Pause';
+    }
+
+    // playlist
+    function appendPlaylistItem(v){
+      // check if already exists
+      if(document.getElementById('pl-'+v.id)) return;
+      const btn = document.createElement('button');
+      btn.id = 'pl-'+v.id;
+      btn.textContent = v.title;
+      btn.style.padding='8px 10px';btn.style.borderRadius='8px';btn.style.border='none';btn.style.background='rgba(255,255,255,0.03)';btn.style.color='var(--muted)';btn.style.cursor='pointer';
+      btn.addEventListener('click',()=>{ mainVideo.src = v.src; mainVideo.play(); playPause.textContent='Pause';});
+      playlistEl.appendChild(btn);
+    }
+
+    // player events
+    playPause.addEventListener('click',()=>{
+      if(mainVideo.paused){ mainVideo.play(); playPause.textContent='Pause'; }
+      else { mainVideo.pause(); playPause.textContent='Play'; }
     });
 
-    function seekVideo() {
-        video.currentTime = seekBar.value * video.duration / 100;
-    }
+    mainVideo.addEventListener('loadedmetadata',()=>{
+      durationEl.textContent = formatTime(mainVideo.duration);
+      seekRange.value = 0;
+    });
 
-    function setVolume() {
-        video.volume = volumeBar.value;
-    }
+    mainVideo.addEventListener('timeupdate',()=>{
+      const pct = (mainVideo.currentTime / (mainVideo.duration || 1)) * 100;
+      seekRange.value = pct;
+      currentEl.textContent = formatTime(mainVideo.currentTime);
+    });
 
-    function goFullScreen() {
-        if (video.requestFullscreen) {
-            video.requestFullscreen();
-        }
-    }
+    seekRange.addEventListener('input',()=>{
+      const pct = seekRange.value;
+      mainVideo.currentTime = (pct/100) * mainVideo.duration;
+    });
+
+    volRange.addEventListener('input',()=>{ mainVideo.volume = volRange.value; });
+
+    btnLoop.addEventListener('click',()=>{ isLoop = !isLoop; mainVideo.loop = isLoop; btnLoop.style.opacity = isLoop?1:0.6; });
+
+    btnFS.addEventListener('click',()=>{
+      if(document.fullscreenElement){ document.exitFullscreen(); }
+      else{ mainVideo.requestFullscreen().catch(()=>{}); }
+    });
+
+    // load demo on start
+    buildGallery();
+
+    // search / play by URL
+    btnLoad.addEventListener('click',()=>{
+      const val = search.value.trim();
+      if(!val) return alert('Paste a direct MP4/WebM URL or type a term to search.');
+      if(val.startsWith('http')){
+        mainVideo.src = val;
+        mainVideo.play();
+        playPause.textContent='Pause';
+        // add to playlist as temp
+        const tmp = {id: 'u-'+Date.now(), title: val.split('/').pop(), src: val};
+        appendPlaylistItem(tmp);
+      } else {
+        alert('Search is demo-only. Paste a full video file URL (http...).');
+      }
+    });
+
+    // drag & drop support for files/urls
+    document.addEventListener('dragover',(e)=>{e.preventDefault();});
+    document.addEventListener('drop',(e)=>{
+      e.preventDefault();
+      const f = e.dataTransfer.files && e.dataTransfer.files[0];
+      if(f){
+        const url = URL.createObjectURL(f);
+        mainVideo.src = url; mainVideo.play(); playPause.textContent='Pause';
+        const tmp = {id:'file-'+Date.now(), title:f.name, src:url}; appendPlaylistItem(tmp);
+      } else {
+        const text = e.dataTransfer.getData('text');
+        if(text && text.startsWith('http')){ mainVideo.src = text; mainVideo.play(); playPause.textContent='Pause'; }
+      }
+    });
+
+    // keyboard shortcuts
+    window.addEventListener('keydown',(e)=>{
+      if(e.code === 'Space'){ e.preventDefault(); if(mainVideo.paused) mainVideo.play(); else mainVideo.pause(); playPause.textContent = mainVideo.paused? 'Play' : 'Pause'; }
+      if(e.key === 'ArrowRight'){ mainVideo.currentTime += 5; }
+      if(e.key === 'ArrowLeft'){ mainVideo.currentTime -= 5; }
+    });
+
+    // small helpers: replace logo, videos as needed
+    // To deploy: replace logo.png and VIDEO_DATA entries with your hosted assets.
 </script>
-
 </body>
 </html>
