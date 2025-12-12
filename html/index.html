@@ -6,7 +6,8 @@
     <title>Vidnexa Player – Clone</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
 
     <style>
         :root{
@@ -155,6 +156,26 @@
 
 
 <style>
+
+    .videoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 40px 0 0 10%;
+}
+    .download_options {
+    display: flex;
+    gap: 10px;
+    padding: 4px;
+}
+img#home_google {
+    width: calc(1vw + 210px);
+    height: 75px;
+    margin: 20px auto;
+    padding: 2px;
+    display: block;
+}
     .hero {
         display: flex;
         width: 100%;
@@ -172,6 +193,21 @@
     }
 </style>
 
+
+<div class="videoContainer"><p class="videoText_new" style="font-weight: lighter; font-size: 20px;">
+    Enhance and enjoy an amazing experience with the All-in-One media player. Download Rocks Video
+    Player, your all-time entertainment hub.</p>
+    <div class="download_options"><a
+            href="https://apps.apple.com/in/app/hd-video-player-all-format/id6479863307"
+            target="_blank" rel="noreferrer nofollow"> <img src="./image/app_store.png"
+                                                            alt="App Store | ASD Dev "
+                                                            id="home_google"></a><a
+            href="http://tinyurl.com/rocksplayer-website-data-2024" target="_blank"
+            rel="noreferrer nofollow"> <img src="./image/google_play.png"
+                                            alt="Google Play Store | ASD Dev " id="home_google"></a>
+    </div>
+</div>
+
 <section class="hero">
     <div class="hero-left">
         <img src="https://play-lh.googleusercontent.com/VbzBK5gxaxgOKjjXn4FrYLRINu6kym7v_ivB_QOq4xqkPyY29rIA-eDl9Dze_5-rgNklMsvc-RB0DzAVMXbW=w2560-h1440-rw">
@@ -185,7 +221,9 @@
             </video>
 
             <div class="playlist">
-                <div class="pl-item" onclick="loadVid('12.12.2025_16.26.08_REC.mp4')">My Uploaded Video</div>
+                <div class="pl-item" onclick="loadVid('12.12.2025_16.26.08_REC.mp4')">My Uploaded
+                    Video
+                </div>
             </div>
         </div>
     </div>
