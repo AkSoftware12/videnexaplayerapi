@@ -1,14 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Custom Video Player</title>
+
+    <style>
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            font-family: Arial;
+        }
+
+        .player-container {
+            width: 80%;
+            max-width: 700px;
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 10px;
+            width: 95%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.5);
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button {
+            background: #ff0040;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="range"] {
+            width: 100%;
+        }
+    </style>
+
 </head>
-
 <body>
-    <h1>Hello</h1>
-</body>
 
+<div class="player-container">
+    <video id="videoPlayer" src="yourvideo.mp4"></video>
+
+    <div class="controls">
+        <button onclick="togglePlay()">Play / Pause</button>
+
+        <input type="range" id="seekBar" value="0" onchange="seekVideo()">
+
+        <input type="range" id="volumeBar" min="0" max="1" step="0.1" value="1" onchange="setVolume()">
+
+        <button onclick="goFullScreen()">Fullscreen</button>
+    </div>
+</div>
+
+<script>
+    const video = document.getElementById("videoPlayer");
+    const seekBar = document.getElementById("seekBar");
+    const volumeBar = document.getElementById("volumeBar");
+
+    function togglePlay() {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+
+    video.addEventListener("timeupdate", () => {
+        seekBar.value = video.currentTime / video.duration * 100;
+    });
+
+    function seekVideo() {
+        video.currentTime = seekBar.value * video.duration / 100;
+    }
+
+    function setVolume() {
+        video.volume = volumeBar.value;
+    }
+
+    function goFullScreen() {
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        }
+    }
+</script>
+
+</body>
 </html>
