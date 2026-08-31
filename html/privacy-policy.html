@@ -1,167 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy — Vidnexa Video Player</title>
-<meta name="description" content="Privacy Policy for the Vidnexa - Ultra HD Video Player Android application.">
-<style>
-  :root {
-    --ink: #1c1b22;
-    --ink-soft: #55525f;
-    --line: #e2e0e8;
-    --paper: #ffffff;
-    --wash: #f7f6fa;
-    --brand: #4c1d95;
-    --brand-soft: #ede9fe;
-  }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Vidnexa Video Player</title>
+  <meta name="description" content="Privacy Policy for the Vidnexa - Ultra HD Video Player Android application.">
+  <style>
+    :root {
+      --ink: #1c1b22;
+      --ink-soft: #55525f;
+      --line: #e2e0e8;
+      --paper: #ffffff;
+      --wash: #f7f6fa;
+      --brand: #4c1d95;
+      --brand-soft: #ede9fe;
+    }
 
-  * { box-sizing: border-box; }
+    * { box-sizing: border-box; }
 
-  html { -webkit-text-size-adjust: 100%; }
+    html { -webkit-text-size-adjust: 100%; }
 
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
-  }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
 
-  header {
-    background: var(--brand);
-    color: #fff;
-    padding: 44px 24px 38px;
-  }
+    header {
+      background: var(--brand);
+      color: #fff;
+      padding: 44px 24px 38px;
+    }
 
-  .inner {
-    max-width: 720px;
-    margin: 0 auto;
-  }
+    .inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-  .app-name {
-    font-size: 14px;
-    letter-spacing: .04em;
-    color: #c4b5fd;
-    margin: 0 0 10px;
-  }
+    .head-text { min-width: 0; }
 
-  header h1 {
-    font-size: 34px;
-    line-height: 1.15;
-    font-weight: 700;
-    margin: 0 0 14px;
-  }
+    .logo-badge {
+      flex: 0 0 auto;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, .18);
+    }
 
-  .updated {
-    font-size: 15px;
-    color: #ddd6fe;
-    margin: 0;
-  }
+    .logo-badge img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      display: block;
+    }
 
-  main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 8px 24px 72px;
-  }
+    .app-name {
+      font-size: 14px;
+      letter-spacing: .04em;
+      color: #c4b5fd;
+      margin: 0 0 10px;
+    }
 
-  .lede {
-    font-size: 18px;
-    color: var(--ink-soft);
-    border-bottom: 1px solid var(--line);
-    padding: 30px 0 28px;
-    margin: 0 0 8px;
-  }
+    header h1 {
+      font-size: 34px;
+      line-height: 1.15;
+      font-weight: 700;
+      margin: 0 0 14px;
+    }
 
-  h2 {
-    font-size: 23px;
-    font-weight: 700;
-    margin: 42px 0 14px;
-    scroll-margin-top: 20px;
-  }
+    .updated {
+      font-size: 15px;
+      color: #ddd6fe;
+      margin: 0;
+    }
 
-  h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 28px 0 10px;
-  }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 8px 24px 72px;
+    }
 
-  p { margin: 0 0 16px; }
+    .lede {
+      font-size: 18px;
+      color: var(--ink-soft);
+      border-bottom: 1px solid var(--line);
+      padding: 30px 0 28px;
+      margin: 0 0 8px;
+    }
 
-  ul { margin: 0 0 18px; padding-left: 22px; }
+    h2 {
+      font-size: 23px;
+      font-weight: 700;
+      margin: 42px 0 14px;
+      scroll-margin-top: 20px;
+    }
 
-  li { margin-bottom: 9px; }
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 28px 0 10px;
+    }
 
-  a { color: var(--brand); }
+    p { margin: 0 0 16px; }
 
-  .callout {
-    background: var(--wash);
-    border-left: 3px solid var(--brand);
-    padding: 20px 22px;
-    margin: 24px 0;
-    border-radius: 0 6px 6px 0;
-  }
+    ul { margin: 0 0 18px; padding-left: 22px; }
 
-  .callout p:last-child { margin-bottom: 0; }
+    li { margin-bottom: 9px; }
 
-  .callout strong { color: var(--ink); }
+    a { color: var(--brand); }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0 24px;
-    font-size: 16px;
-  }
+    .callout {
+      background: var(--wash);
+      border-left: 3px solid var(--brand);
+      padding: 20px 22px;
+      margin: 24px 0;
+      border-radius: 0 6px 6px 0;
+    }
 
-  th, td {
-    text-align: left;
-    padding: 12px 14px;
-    border-bottom: 1px solid var(--line);
-    vertical-align: top;
-  }
+    .callout p:last-child { margin-bottom: 0; }
 
-  th {
-    background: var(--wash);
-    font-weight: 600;
-    font-size: 15px;
-  }
+    .callout strong { color: var(--ink); }
 
-  .contact {
-    background: var(--brand-soft);
-    padding: 24px;
-    border-radius: 8px;
-    margin-top: 26px;
-  }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0 24px;
+      font-size: 16px;
+    }
 
-  .contact p:last-child { margin-bottom: 0; }
+    th, td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
 
-  footer {
-    border-top: 1px solid var(--line);
-    margin-top: 56px;
-    padding-top: 24px;
-    font-size: 15px;
-    color: var(--ink-soft);
-  }
+    th {
+      background: var(--wash);
+      font-weight: 600;
+      font-size: 15px;
+    }
 
-  @media (max-width: 600px) {
-    body { font-size: 16px; }
-    header { padding: 34px 20px 30px; }
-    header h1 { font-size: 27px; }
-    main { padding: 4px 20px 56px; }
-    h2 { font-size: 21px; margin-top: 36px; }
-    table { font-size: 15px; }
-    th, td { padding: 10px 10px; }
-  }
-</style>
+    .contact {
+      background: var(--brand-soft);
+      padding: 24px;
+      border-radius: 8px;
+      margin-top: 26px;
+    }
+
+    .contact p:last-child { margin-bottom: 0; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 56px;
+      padding-top: 24px;
+      font-size: 15px;
+      color: var(--ink-soft);
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      header { padding: 34px 20px 30px; }
+      header h1 { font-size: 27px; }
+      .inner { gap: 14px; }
+      .logo-badge { width: 58px; height: 58px; }
+      .logo-badge img { width: 44px; height: 44px; }
+      main { padding: 4px 20px 56px; }
+      h2 { font-size: 21px; margin-top: 36px; }
+      table { font-size: 15px; }
+      th, td { padding: 10px 10px; }
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <div class="inner">
-    <p class="app-name">Vidnexa — Ultra HD Video Player</p>
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 31 August 2026</p>
+    <div class="head-text">
+      <p class="app-name">Vidnexa — Ultra HD Video Player</p>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: 31 August 2026</p>
+    </div>
+    <div class="logo-badge">
+      <img src="image/logo.webp" alt="Vidnexa logo" width="60" height="60">
+    </div>
   </div>
 </header>
 
@@ -210,58 +244,58 @@
   <h2>What this means in summary</h2>
   <table>
     <thead>
-      <tr>
-        <th>Data</th>
-        <th>Leaves your device?</th>
-        <th>Purpose</th>
-      </tr>
+    <tr>
+      <th>Data</th>
+      <th>Leaves your device?</th>
+      <th>Purpose</th>
+    </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Videos, music, photos, files</td>
-        <td>No</td>
-        <td>Played and managed locally</td>
-      </tr>
-      <tr>
-        <td>Advertising ID and device identifiers</td>
-        <td>Yes — shared with Google</td>
-        <td>Advertising</td>
-      </tr>
-      <tr>
-        <td>Approximate location (from IP)</td>
-        <td>Yes — shared with Google</td>
-        <td>Advertising</td>
-      </tr>
-      <tr>
-        <td>App interactions</td>
-        <td>Yes — collected by Firebase</td>
-        <td>Analytics</td>
-      </tr>
-      <tr>
-        <td>Crash logs and diagnostics</td>
-        <td>Yes — collected by Firebase</td>
-        <td>Fixing bugs, app functionality</td>
-      </tr>
-      <tr>
-        <td>Voice input (only while mic is active)</td>
-        <td>Yes — processed by your device's speech service</td>
-        <td>Voice search, then discarded</td>
-      </tr>
-      <tr>
-        <td>Notification token</td>
-        <td>Yes — held by Firebase</td>
-        <td>Delivering notifications</td>
-      </tr>
-      <tr>
-        <td>Vault PIN</td>
-        <td>No — hashed and stored on device</td>
-        <td>Locking your private folder</td>
-      </tr>
-      <tr>
-        <td>Name, email, phone number</td>
-        <td>Not collected at all</td>
-        <td>—</td>
-      </tr>
+    <tr>
+      <td>Videos, music, photos, files</td>
+      <td>No</td>
+      <td>Played and managed locally</td>
+    </tr>
+    <tr>
+      <td>Advertising ID and device identifiers</td>
+      <td>Yes — shared with Google</td>
+      <td>Advertising</td>
+    </tr>
+    <tr>
+      <td>Approximate location (from IP)</td>
+      <td>Yes — shared with Google</td>
+      <td>Advertising</td>
+    </tr>
+    <tr>
+      <td>App interactions</td>
+      <td>Yes — collected by Firebase</td>
+      <td>Analytics</td>
+    </tr>
+    <tr>
+      <td>Crash logs and diagnostics</td>
+      <td>Yes — collected by Firebase</td>
+      <td>Fixing bugs, app functionality</td>
+    </tr>
+    <tr>
+      <td>Voice input (only while mic is active)</td>
+      <td>Yes — processed by your device's speech service</td>
+      <td>Voice search, then discarded</td>
+    </tr>
+    <tr>
+      <td>Notification token</td>
+      <td>Yes — held by Firebase</td>
+      <td>Delivering notifications</td>
+    </tr>
+    <tr>
+      <td>Vault PIN</td>
+      <td>No — hashed and stored on device</td>
+      <td>Locking your private folder</td>
+    </tr>
+    <tr>
+      <td>Name, email, phone number</td>
+      <td>Not collected at all</td>
+      <td>—</td>
+    </tr>
     </tbody>
   </table>
 
@@ -301,8 +335,7 @@
   <div class="contact">
     <p>Questions about this policy or about your data:</p>
     <p><strong>Email:</strong> <a href="mailto:vidnexaplayer@gmail.com">vidnexaplayer@gmail.com</a><br>
-<!--    <strong>Developer:</strong> Ravikant Saini<br>-->
-    <strong>Address:</strong> Vill. Miyangi, Post Badgaon, Saharanpur, Uttar Pradesh 247452, India</p>
+      <strong>Address:</strong> Vill. Miyangi, Post Badgaon, Saharanpur, Uttar Pradesh 247452, India</p>
   </div>
 
   <footer>
