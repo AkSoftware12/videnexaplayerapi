@@ -134,7 +134,7 @@ img{ max-width:100%; display:block; }
   border:1px solid var(--line); box-shadow:0 10px 40px -12px rgba(27,24,48,0.18);
 }
 .brand{ display:flex; align-items:center; gap:9px; font-family:'Fraunces',serif; font-weight:650; font-size:18px; }
-.brand img{ width:28px; height:28px; border-radius:9px; }
+.brand img{ width:28px; height:28px; border-radius:9px; flex-shrink:0; }
 .nav-links{ display:flex; gap:26px; align-items:center; }
 .nav-links a{ font-size:14px; color:var(--ink-dim); transition:color .2s; white-space:nowrap; }
 .nav-links a:hover, .nav-links a.current{ color:var(--violet-2); }
@@ -146,6 +146,11 @@ img{ max-width:100%; display:block; }
 }
 .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 10px 26px rgba(50,0,173,0.30); }
 .nav-toggle{ display:none; background:none; border:0; color:var(--ink); font-size:20px; cursor:pointer; }
+@media (max-width:420px){
+  .nav-inner{ padding:10px 8px 10px 14px; gap:6px; }
+  .brand{ font-size:16px; gap:7px; }
+  .nav-cta{ padding:9px 13px; font-size:12.5px; gap:5px; }
+}
 @media (max-width:860px){
   .nav-links{ position:fixed; inset:78px 20px auto 20px; flex-direction:column; align-items:flex-start; padding:20px 22px; gap:16px; border-radius:22px; transform:translateY(-130%); opacity:0; transition:.35s var(--ease); }
   .nav-links.open{ transform:translateY(0); opacity:1; }
@@ -1348,8 +1353,9 @@ if(themeToggle){
   const after = wrap.querySelector('.hdr-after');
   const divider = wrap.querySelector('.hdr-divider');
   let dragging = false;
+  let cachedRect = null;
   function setPos(clientX){
-    const r = wrap.getBoundingClientRect();
+    const r = cachedRect || wrap.getBoundingClientRect();
     let pct = ((clientX - r.left) / r.width) * 100;
     pct = Math.max(4, Math.min(96, pct));
     after.style.width = pct + '%';
@@ -1358,9 +1364,9 @@ if(themeToggle){
     if(afterImg) afterImg.style.width = (100 / (pct/100)) + '%';
   }
   // Mouse: drag anywhere is fine on desktop
-  wrap.addEventListener('mousedown', e=>{ dragging=true; setPos(e.clientX); });
+  wrap.addEventListener('mousedown', e=>{ dragging=true; cachedRect = wrap.getBoundingClientRect(); setPos(e.clientX); });
   window.addEventListener('mousemove', e=>{ if(dragging) setPos(e.clientX); });
-  window.addEventListener('mouseup', ()=>{ dragging=false; });
+  window.addEventListener('mouseup', ()=>{ dragging=false; cachedRect = null; });
 
   // Touch: only start dragging from the divider handle, and only take over
   // once the finger is clearly moving horizontally — otherwise let the page scroll.
@@ -1375,6 +1381,7 @@ if(themeToggle){
     const r = handle.getBoundingClientRect();
     const nearHandle = Math.abs(t.clientX - (r.left + r.width/2)) < 44;
     dragging = nearHandle;
+    if(dragging) cachedRect = wrap.getBoundingClientRect();
   }
   function touchMove(e){
     if(!dragging) return;
@@ -1389,7 +1396,7 @@ if(themeToggle){
     }
     if(horiz){ e.preventDefault(); setPos(t.clientX); }
   }
-  function touchEnd(){ dragging=false; decided=false; horiz=false; }
+  function touchEnd(){ dragging=false; decided=false; horiz=false; cachedRect=null; }
 
   wrap.addEventListener('touchstart', touchStart, {passive:true});
   wrap.addEventListener('touchmove', touchMove, {passive:false});
