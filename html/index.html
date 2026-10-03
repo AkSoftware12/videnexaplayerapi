@@ -146,10 +146,17 @@ img{ max-width:100%; display:block; }
 }
 .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 10px 26px rgba(50,0,173,0.30); }
 .nav-toggle{ display:none; background:none; border:0; color:var(--ink); font-size:20px; cursor:pointer; }
-@media (max-width:420px){
-  .nav-inner{ padding:10px 8px 10px 14px; gap:6px; }
-  .brand{ font-size:16px; gap:7px; }
-  .nav-cta{ padding:9px 13px; font-size:12.5px; gap:5px; }
+.brand{ flex-shrink:0; }
+.nav-cta{ flex-shrink:1; min-width:0; overflow:hidden; white-space:nowrap; text-overflow:clip; }
+.nav-cta .cta-arrow{ display:inline; }
+@media (max-width:480px){
+  .nav-inner{ padding:10px 6px 10px 12px; gap:4px; }
+  .brand{ font-size:15px; gap:6px; }
+  .nav-cta{ padding:9px 12px; font-size:12px; gap:4px; }
+  .nav-cta .cta-arrow{ display:none; }
+}
+@media (max-width:360px){
+  .nav-cta{ padding:8px 10px; font-size:11px; }
 }
 @media (max-width:860px){
   .nav-links{ position:fixed; inset:78px 20px auto 20px; flex-direction:column; align-items:flex-start; padding:20px 22px; gap:16px; border-radius:22px; transform:translateY(-130%); opacity:0; transition:.35s var(--ease); }
@@ -736,7 +743,7 @@ img, video, svg{ max-width:100%; height:auto; }
         <a href="blog/blog.html">Blog</a>
         <a href="#reviews">Reviews</a>
       </div>
-      <a href="https://play.google.com/store/apps/details?id=com.vidnexa.videoplayer" class="nav-cta">Get the App ↗</a>
+      <a href="https://play.google.com/store/apps/details?id=com.vidnexa.videoplayer" class="nav-cta">Get the App <span class="cta-arrow">↗</span></a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀</button>
       <button class="nav-toggle" aria-label="Menu">☰</button>
     </div>
