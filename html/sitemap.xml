@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vidnexaplayer.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://vidnexaplayer.com/blog/blog.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vidnexaplayer.com/blog/best-4k-video-player-android.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vidnexaplayer.com/blog/play-mkv-hevc-android.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vidnexaplayer.com/blog/save-whatsapp-status.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vidnexaplayer.com/blog/compare.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vidnexaplayer.com/blog/best-video-player-android-2026.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vidnexaplayer.com/blog/cast-android-to-tv.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vidnexaplayer.com/blog/equalizer-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vidnexaplayer.com/blog/vidnexa-vs-mx-player.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vidnexaplayer.com/</loc><lastmod>2026-10-13</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://vidnexaplayer.com/blog/blog.html</loc><lastmod>2026-10-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vidnexaplayer.com/blog/best-4k-video-player-android.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vidnexaplayer.com/blog/play-mkv-hevc-android.html</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vidnexaplayer.com/blog/save-whatsapp-status.html</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vidnexaplayer.com/blog/compare.html</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vidnexaplayer.com/blog/best-video-player-android-2026.html</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vidnexaplayer.com/blog/cast-android-to-tv.html</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vidnexaplayer.com/blog/equalizer-guide.html</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vidnexaplayer.com/blog/vidnexa-vs-mx-player.html</loc><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vidnexaplayer.com/blog/video-not-playing-android.html</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
