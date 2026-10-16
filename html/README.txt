@@ -1,62 +1,22 @@
-# Vidnexa Player Website — Complete Package
-====================================================
+Vidnexa Player — new homepage, Option B (purple). TEST VERSION.
 
-## File Structure
-```
-vidnexa-player/
-├── index.html              ← Main Landing Page (HOME)
-├── about.html              ← About Vidnexa Page
-├── faq.html                ← FAQ Page (with accordion)
-├── privacy.html            ← Privacy Policy
-├── terms.html              ← Terms of Use
-├── blog.html               ← Blog Listing Page
-├── contact.html            ← Contact Page (with form)
-├── sitemap.xml             ← Google Sitemap (for SEO)
-├── robots.txt              ← Google Crawl Instructions
-├── assets/
-│   ├── style.css           ← Shared Styles (all pages use this)
-│   └── script.js           ← Shared JavaScript
-└── blog/
-    ├── best-video-player-android-2025.html
-    ├── how-to-save-whatsapp-status.html
-    └── download-instagram-reels-free.html
-```
+WHAT IS INSIDE
+  index-b.html   the new homepage (opens in dark theme first)
+  img/v2/        new images (hero, feature images, logo)
+  img/tour/      phone tour screenshots
+  The live index.html and the old img/ files are NOT touched.
 
-## How to Use
+HOW TO TEST WITHOUT TOUCHING THE LIVE SITE
+  1. Copy index-b.html into the html/ folder (next to index.html).
+  2. Copy the img/v2 and img/tour folders into html/img/
+     (so you get html/img/v2/... and html/img/tour/...).
+  3. Commit and Push.
+  4. Open https://vidnexaplayer.com/index-b.html on your phone.
+  5. Run PageSpeed Insights on that URL (mobile + desktop).
 
-### Open Locally
-Just double-click `index.html` to open in any browser.
-All pages link to each other automatically.
+STILL USES THESE FILES FROM THE EXISTING img/ FOLDER (do not delete):
+  status-hero.webp, status-grid-1.webp ... status-grid-4.webp
 
-### Upload to Hosting
-Upload ALL files and folders to your hosting server.
-Keep the folder structure exactly as-is.
-
-### Update Your Domain
-Replace `https://vidnexaplayer.com/` with your actual domain in:
-- sitemap.xml
-- robots.txt
-- All <link rel="canonical"> tags in HTML files
-
-## SEO Features Included
-✅ Title tags optimized for each page
-✅ Meta descriptions (155 chars)
-✅ Schema.org markup (SoftwareApplication, FAQPage, BlogPosting, Organization)
-✅ Open Graph tags (Facebook/WhatsApp sharing)
-✅ Canonical URLs
-✅ Sitemap.xml
-✅ robots.txt
-✅ Semantic HTML (main, article, section, nav, footer)
-✅ Google E-E-A-T signals (About page, team credibility, Privacy Policy)
-✅ Core Web Vitals optimized (minimal JS, no render-blocking, font-display:swap)
-✅ Mobile-first responsive design
-✅ Internal linking between all pages
-
-## Customize
-- Replace "vidnexaplayer.com" with your actual domain everywhere
-- Add your Google Play Store link to all download buttons
-- Add your App Store link when iOS version is ready
-- Update support email addresses in privacy.html and contact.html
-- Add your real social media links in the footer socials section
-
-Made with ❤ for Vidnexa Player
+WHEN YOU ARE HAPPY
+  Rename index.html -> index-old.html, then index-b.html -> index.html.
+  Commit and Push. Blog, privacy policy, sitemap and robots stay as they are.
