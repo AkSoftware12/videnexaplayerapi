@@ -100,8 +100,9 @@ strong,b{ color:var(--ink); font-weight:700; }
 @media (max-width:560px){ .related-grid{ grid-template-columns:1fr; } }
 
 /* footer */
-footer{ border-top:1px solid var(--line); padding:40px 24px; text-align:center; color:var(--ink-faint); font-size:13px; position:relative; z-index:1; }
-footer a{ color:var(--ink-dim); }
+footer{ border-top:1px solid var(--line); padding:40px 24px; text-align:center; color:var(--ink-dim); font-size:13px; position:relative; z-index:1; }
+footer a{ color:var(--ink-dim); text-decoration:underline; }
+footer .tm-note{ margin:8px 0 0; font-size:12px; }
 
 .theme-toggle{ width:34px; height:34px; border-radius:50%; background:var(--surface-2); border:1px solid var(--line); color:var(--ink); font-size:15px; cursor:pointer; }
 </style>
@@ -278,6 +279,7 @@ footer a{ color:var(--ink-dim); }
 
 <footer>
   <p>© 2025–2026 Vidnexa Player · Authenticode Solution · <a href="https://play.google.com/store/apps/details?id=com.vidnexa.videoplayer">Google Play से डाउनलोड करें</a></p>
+  <p class="tm-note">WhatsApp अपने मालिक का ट्रेडमार्क है। Vidnexa Player का WhatsApp से कोई संबंध नहीं है और न ही यह उसके द्वारा समर्थित है।</p>
 </footer>
 <script>
   const tg=document.getElementById('tg');const r=document.documentElement;

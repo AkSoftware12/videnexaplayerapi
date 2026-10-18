@@ -1,0 +1,27 @@
+Vidnexa website — WhatsApp trademark-safety update (18 Oct 2026)
+Changed files (19). Everything else is identical to the last live upload.
+
+HTML (15)
+  blog/best-4k-video-player-android.html
+  blog/best-video-player-android-2026.html
+  blog/blog.html
+  blog/cast-android-to-tv.html
+  blog/compare.html
+  blog/equalizer-guide.html
+  blog/play-mkv-hevc-android.html
+  blog/video-not-playing-android.html
+  blog/vidnexa-vs-mx-player.html
+  hi/blog/play-mkv-hevc-android.html
+  hi/index.html
+  id/blog/play-mkv-hevc-android.html
+  id/index.html
+  index.html
+  privacy-policy.html
+
+Images (4) — only the small WhatsApp notification icon in the status bar was removed
+  img/tour/eq.webp
+  img/tour/gallery-albums.webp
+  img/tour/gallery-tools.webp
+  img/tour/music.webp
+
+NOT touched (protected): blog/save-whatsapp-status.html and its id/ and hi/ versions.
