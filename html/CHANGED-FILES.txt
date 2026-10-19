@@ -1,27 +1,11 @@
-Vidnexa website — WhatsApp trademark-safety update (18 Oct 2026)
-Changed files (19). Everything else is identical to the last live upload.
-
-HTML (15)
-  blog/best-4k-video-player-android.html
-  blog/best-video-player-android-2026.html
-  blog/blog.html
-  blog/cast-android-to-tv.html
-  blog/compare.html
-  blog/equalizer-guide.html
-  blog/play-mkv-hevc-android.html
-  blog/video-not-playing-android.html
-  blog/vidnexa-vs-mx-player.html
-  hi/blog/play-mkv-hevc-android.html
-  hi/index.html
-  id/blog/play-mkv-hevc-android.html
-  id/index.html
-  index.html
-  privacy-policy.html
-
-Images (4) — only the small WhatsApp notification icon in the status bar was removed
-  img/tour/eq.webp
-  img/tour/gallery-albums.webp
-  img/tour/gallery-tools.webp
-  img/tour/music.webp
-
-NOT touched (protected): blog/save-whatsapp-status.html and its id/ and hi/ versions.
+Changed files (copy into the html/ folder, replace the old ones):
+1. img/v2/music-player.webp     - new Vidnexa Music Player banner (4 phones, with Now Playing Queue)
+2. img/tour/music.webp          - new music player screen inside the "One app. Five things" phone mockup
+3. img/v2/player-controls.webp  - NEW image: Player Controls banner
+4. index.html                   - new "Every control, one tap away." section (To MP3, Clip/GIF, Bookmark, 2x speed),
+                                  2 new chips (Video to MP3, Clip & GIF), 1 new FAQ (+ FAQ schema),
+                                  music image alt text, mockup progress bar/EQ tap realigned
+5. id/index.html                - same changes (Indonesian)
+6. hi/index.html                - same changes (Hindi)
+Nothing else was changed. Protected blog untouched. Existing "Night Mode" card untouched.
+After push: Cloudflare > Purge Cache.
