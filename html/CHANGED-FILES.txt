@@ -1,11 +1,13 @@
-COMPLETE UPDATE - copy index.html, id, hi, img into the html/ folder (Replace).
+vidnexa-2026-10-20-v3  (COMPLETE - use ONLY this zip, delete all older ones)
+Copy index.html, id, hi, img into the html/ folder (Replace).
 Pages: index.html, id/index.html, hi/index.html
-Images (all new names - tick ALL 6 in the commit):
-  img/v2/gallery-2026-v3.webp      Gallery section (final 4-phone image)
-  img/v2/music-player-2026.webp    Music Player section
-  img/v2/player-controls.webp      Player Controls section
-  img/tour/gallery-albums-2026.webp  NEW gallery screen in "One app. Five things" phone
-  img/tour/gallery-tools-2026.webp   NEW gallery Tools screen in the same phone
+  Check: index.html contains "Already using Vidnexa?" and "player-controls-2026.webp"
+Images (tick ALL 6 in the commit):
+  img/v2/player-controls-2026.webp   NEW sharp Player Controls banner
+  img/v2/gallery-2026-v3.webp        Gallery section
+  img/v2/music-player-2026.webp      Music Player section
+  img/tour/gallery-albums-2026.webp  gallery screen in "One app. Five things" phone
+  img/tour/gallery-tools-2026.webp   gallery Tools screen in the same phone
   img/tour/music-2026.webp           music screen in the same phone
-Includes: desktop speed fix, rating section, gallery text, all music changes.
-After push: Cloudflare > Purge Everything.
+Includes: "To audio" (M4A) wording instead of MP3, desktop speed fix, rating section, gallery text, music changes.
+After push: Cloudflare > Purge Everything. Then tell Claude "done" to check the live site.
