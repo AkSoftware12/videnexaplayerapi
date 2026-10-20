@@ -1,11 +1,7 @@
-Changed files (copy into the html/ folder, replace the old ones):
-1. img/v2/music-player.webp     - new Vidnexa Music Player banner (4 phones, with Now Playing Queue)
-2. img/tour/music.webp          - new music player screen inside the "One app. Five things" phone mockup
-3. img/v2/player-controls.webp  - NEW image: Player Controls banner
-4. index.html                   - new "Every control, one tap away." section (To MP3, Clip/GIF, Bookmark, 2x speed),
-                                  2 new chips (Video to MP3, Clip & GIF), 1 new FAQ (+ FAQ schema),
-                                  music image alt text, mockup progress bar/EQ tap realigned
-5. id/index.html                - same changes (Indonesian)
-6. hi/index.html                - same changes (Hindi)
-Nothing else was changed. Protected blog untouched. Existing "Night Mode" card untouched.
-After push: Cloudflare > Purge Cache.
+Copy index.html, id, hi, img into the html/ folder (Replace).
+NEW image names (so the old cached images can't show any more):
+  img/v2/music-player-2026.webp  - new Music Player banner (4 phones + queue)
+  img/tour/music-2026.webp       - new music screen inside the phone mockup
+  img/v2/player-controls.webp    - Player Controls banner
+index.html, id/index.html, hi/index.html now point to these new names.
+After push: Cloudflare > Purge Everything.
