@@ -197,7 +197,7 @@ button{font:inherit;color:inherit}
 .mono{font-family:var(--f-mono);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-variant-numeric:tabular-nums}
 h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.02em}
 p{margin:0}
-.grain{position:fixed;inset:-50%;pointer-events:none;z-index:60;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(6) infinite}
+.grain{position:fixed;inset:-50%;pointer-events:none;z-index:60;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-6%,-2%)}80%{transform:translate(5%,4%)}100%{transform:translate(0,0)}}
 
 
@@ -494,7 +494,7 @@ footer a:hover{color:var(--text)}
 @keyframes pmbob2{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(-.4deg)}}
 .pm-l img.ph{position:absolute;inset:0;width:100%;height:100%;display:block;filter:saturate(.3) contrast(.84) brightness(.92);transition:filter 1.1s ease}
 .pm.s6 .pm-l img.ph{filter:saturate(1.2) contrast(1.07) brightness(1.04)}
-.pm-sweep{position:absolute;inset:0;-webkit-mask:url(../img/v2/hero-landscape.webp) center/100% 100% no-repeat;mask:url(../img/v2/hero-landscape.webp) center/100% 100% no-repeat;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.6) 50%,transparent 58%);background-size:300% 100%;background-position:120% 0;opacity:0;pointer-events:none}
+.pm-sweep{position:absolute;inset:4px;-webkit-mask:url(../img/v2/hero-landscape.webp) center/100% 100% no-repeat;mask:url(../img/v2/hero-landscape.webp) center/100% 100% no-repeat;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.6) 50%,transparent 58%);background-size:300% 100%;background-position:120% 0;opacity:0;pointer-events:none}
 .pm.s6 .pm-sweep{animation:pmsweep 1.3s ease-out forwards}
 @keyframes pmsweep{0%{opacity:1;background-position:120% 0}100%{opacity:1;background-position:-20% 0}}
 .pm-fx{position:absolute;inset:0;opacity:0;transition:opacity .8s}
@@ -650,7 +650,7 @@ footer a:hover{color:var(--text)}
 .lang-sw a[aria-current="page"]{background:#6C3BFF;color:#fff}
 @media (max-width:420px){.lang-sw a{min-width:30px;padding:0 6px}.logo{font-size:16px}}
 .tm-note{width:100%;margin:10px 0 0;font-size:12px;line-height:1.5;color:var(--muted)}
-</style>
+.rate-btns{display:flex;flex-wrap:wrap;gap:14px 18px;justify-content:center;align-items:center;margin-top:20px}.rate-btns .play-btn{margin-top:0}.rate-link{display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 22px;border-radius:999px;border:1.5px solid rgba(124,77,255,.55);color:inherit;font-weight:700;font-size:15px;text-decoration:none;transition:background .25s}.rate-link:hover{background:rgba(124,77,255,.14)}.rate-link .st{color:#E7A92C}@media(min-width:900px){.gtl{grid-template-columns:repeat(3,1fr)}}.vx-off,.vx-off *,.vx-off *::before,.vx-off *::after{animation-play-state:paused!important}</style>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -930,8 +930,8 @@ footer a:hover{color:var(--text)}
 
               <div class="vxt-scr" data-s="2">
                 <div class="vxt-gal">
-                  <div class="vxt-g1"><img src="../img/tour/gallery-albums.webp" alt="" width="600" height="1318" loading="lazy" decoding="async"></div>
-                  <div class="vxt-g2"><img src="../img/tour/gallery-tools.webp" alt="" width="600" height="1318" loading="lazy" decoding="async"></div>
+                  <div class="vxt-g1"><img src="../img/tour/gallery-albums-2026.webp" alt="" width="600" height="1318" loading="lazy" decoding="async"></div>
+                  <div class="vxt-g2"><img src="../img/tour/gallery-tools-2026.webp" alt="" width="600" height="1318" loading="lazy" decoding="async"></div>
                 </div>
                 <span class="vxt-abs vxt-tap vxt-gtap"><i></i><b></b></span>
               </div>
@@ -1196,15 +1196,16 @@ footer a:hover{color:var(--text)}
     <div class="sec-head rv">
       <div class="mono eyebrow">गैलरी और फ़ोटो टूल</div>
       <h2 class="h2">आपकी गैलरी, अब और दमदार।</h2>
-      <p class="lede">Vidnexa की गैलरी सिर्फ़ फ़ोटो देखने के लिए नहीं — इसमें पूरा फ़ोटो टूलकिट है।</p>
+      <p class="lede">Vidnexa की गैलरी सिर्फ़ फ़ोटो देखने के लिए नहीं है — दिन के हिसाब से फ़ोटो देखें, एल्बम अपने हिसाब से सॉर्ट करें, किसी भी एल्बम का स्लाइडशो चलाएँ, और बिल्ट-इन टूल से फ़ोटो साफ़ करें या बेहतर बनाएँ।</p>
     </div>
-    <div style="margin-top:40px"><div class="media rv" data-img data-name="gallery-tools.webp" style="--ar:16/9"><img src="../img/v2/gallery-tools.webp" alt="Vidnexa गैलरी: फ़ोटो, एल्बम और टूल, जैसे स्मार्ट सर्च, जंक क्लीनर, 4K एन्हांस, रीसाइज़ और क्रॉप, ऑटो कोलाज, फ़ोटो पर टेक्स्ट, फ़ोटो एडिटर और प्राइवेट फ़ोल्डर" width="1600" height="900" loading="lazy" decoding="async"></div></div>
+    <div style="margin-top:40px"><div class="media rv" data-img data-name="gallery-2026-v3.webp" style="--ar:16/9"><img src="../img/v2/gallery-2026-v3.webp" alt="Vidnexa गैलरी: दिन के हिसाब से फ़ोटो, स्लाइडशो वाले एल्बम, हाल के, A–Z या सबसे ज़्यादा आइटम के हिसाब से सॉर्ट हुए सभी एल्बम, और फ़ोटो इंडेक्स, स्मार्ट सर्च, जंक क्लीनर, डुप्लिकेट फ़ाइंडर, 4K एन्हांस और ऑटो कोलाज जैसे टूल" width="1600" height="900" loading="lazy" decoding="async"></div></div>
     <div class="gtl">
-      <div class="rv"><b>नया गैलरी डिज़ाइन</b><span>साफ़ और तेज़ गैलरी, जिसमें फ़ोटो देखना मज़ेदार है।</span></div>
-      <div class="rv"><b>गैलरी फ़िल्टर और टूल</b><span>बिल्ट-इन फ़िल्टर और आसान टूल से फ़ोटो सुधारें और एडिट करें।</span></div>
+      <div class="rv"><b>नया गैलरी डिज़ाइन</b><span>फ़ोटो, एल्बम और टूल, सब एक साफ़ लेआउट में। दिन के हिसाब से फ़ोटो देखें, हर वीडियो पर उसकी लंबाई दिखती है।</span></div>
+      <div class="rv"><b>एल्बम स्लाइडशो · नया</b><span>किसी भी एल्बम को एक टैप में स्लाइडशो की तरह चलाएँ — घूमने की फ़ोटो, परिवार और यादों के लिए बढ़िया।</span></div>
+      <div class="rv"><b>स्मार्ट सर्च और एल्बम सॉर्टिंग</b><span>तारीख, फ़ोल्डर, साइज़ या रंग से फ़ोटो ढूँढें। पसंदीदा एल्बम पिन करें और बाकी को हाल के, A–Z या सबसे ज़्यादा आइटम के हिसाब से सॉर्ट करें।</span></div>
       <div class="rv"><b>ऑटो कोलाज और फ़ोटो से टेक्स्ट</b><span>फ़ोटो से तुरंत कोलाज बनाएँ, और किसी भी तस्वीर से एक टैप में टेक्स्ट निकालें।</span></div>
-      <div class="rv"><b>जंक और डुप्लिकेट क्लीनर</b><span>जंक और डुप्लिकेट फ़ोटो ढूँढकर हटाएँ और जल्दी जगह खाली करें।</span></div>
-      <div class="rv"><b>4K फ़ोटो एन्हांसमेंट</b><span>फ़ोटो को शार्प करके शानदार 4K क्वालिटी तक बढ़ाएँ।</span></div>
+      <div class="rv"><b>जंक क्लीनर और डुप्लिकेट फ़ाइंडर</b><span>धुंधली फ़ोटो और पुराने स्क्रीनशॉट हटाएँ, मिलती-जुलती फ़ोटो एक साथ देखें, और जल्दी जगह खाली करें।</span></div>
+      <div class="rv"><b>4K तक एन्हांस</b><span>फ़ोटो को 4× तक बड़ा और शार्प करें, ताकि 4K जैसी साफ़ डिटेल मिले।</span></div>
     </div>
   </div>
 </section>
@@ -1240,9 +1241,9 @@ footer a:hover{color:var(--text)}
   <div class="wrap">
     <div class="rate rv">
       <div class="big-stars" aria-hidden="true">★★★★★</div>
-      <h2 class="h2" style="margin:0">Vidnexa पसंद आया? रेटिंग दीजिए।</h2>
-      <p>Google Play पर आपकी रेटिंग से और लोगों को ये ऐप मिलता है — और हमें पता चलता है कि आगे क्या बनाना है। बस दस सेकंड लगते हैं।</p>
-      <a class="play-btn" href="https://play.google.com/store/apps/details?id=com.vidnexa.videoplayer&amp;showAllReviews=true"><span class="tri" style="color:#fff;font-size:18px">★</span>Google Play पर रेटिंग दें</a>
+      <h2 class="h2" style="margin:0">पहले से Vidnexa इस्तेमाल कर रहे हैं? रेटिंग दीजिए।</h2>
+      <p>नए हैं? पहले ऐप फ़्री में डाउनलोड करें। पहले से इस्तेमाल कर रहे हैं? Google Play पर आपकी रेटिंग से और लोगों को Vidnexa मिलता है — और हमें पता चलता है कि आगे क्या बनाना है। बस दस सेकंड लगते हैं।</p>
+      <div class="rate-btns"><a class="play-btn" href="https://play.google.com/store/apps/details?id=com.vidnexa.videoplayer"><span class="tri" style="color:#fff;font-size:18px">▶</span>Google Play से डाउनलोड करें</a><a class="rate-link" href="https://play.google.com/store/apps/details?id=com.vidnexa.videoplayer&amp;showAllReviews=true"><span class="st" aria-hidden="true">★</span>रेटिंग दें</a></div>
     </div>
   </div>
 </section>
@@ -1382,12 +1383,16 @@ footer a:hover{color:var(--text)}
     /* phones: start the light only after the visitor touches or scrolls, so first load stays light */
     let started=false;const go=()=>{if(started)return;started=true;['pointerdown','touchstart','scroll','keydown'].forEach(ev=>removeEventListener(ev,go));startBeam();};
     ['pointerdown','touchstart','scroll','keydown'].forEach(ev=>addEventListener(ev,go,{passive:true}));
-  } else if(document.readyState==='complete')kick();else addEventListener('load',kick);
+  } else {
+    let started=false;const go=()=>{if(started)return;started=true;['pointermove','pointerdown','wheel','scroll','keydown','touchstart'].forEach(ev=>removeEventListener(ev,go));kick();};
+    ['pointermove','pointerdown','wheel','scroll','keydown','touchstart'].forEach(ev=>addEventListener(ev,go,{passive:true}));
+  }
 
   /* ---------- live timecode in hero ---------- */
   const live=$('#liveTc');const tl0=performance.now();
   const fmt=(sec)=>{const f=Math.floor((sec%1)*24),s=Math.floor(sec)%60,mi=Math.floor(sec/60)%60,hh=Math.floor(sec/3600);return [hh,mi,s,f].map(v=>String(v).padStart(2,'0')).join(':');};
-  setInterval(()=>{ if(!paused) live.textContent=fmt((performance.now()-tl0)/1000); },42);
+  let heroOn=true;new IntersectionObserver(es=>{heroOn=es[0].isIntersecting;}).observe(document.querySelector('.hero'));
+  setInterval(()=>{ if(!paused&&heroOn&&!document.hidden) live.textContent=fmt((performance.now()-tl0)/1000); },42);
 
   /* ---------- magnetic CTA ---------- */
   const mg=$('#magnet');
@@ -1403,12 +1408,16 @@ footer a:hover{color:var(--text)}
   const r1=$('#row1'),r2=$('#row2');fill(r1,f1);fill(r2,f2);
   document.querySelectorAll('.formats .tag').forEach(t=>t.addEventListener('click',()=>{t.classList.add('hot');setTimeout(()=>t.classList.remove('hot'),1600);}));
   let off1=0,off2=0,lastY=scrollY,vel=0;
+  let W1=r1.scrollWidth/2,W2=r2.scrollWidth/2,reelOn=false,reelRun=false;
+  addEventListener('resize',()=>{W1=r1.scrollWidth/2;W2=r2.scrollWidth/2;});
+  new IntersectionObserver(es=>{reelOn=es[0].isIntersecting;if(reelOn&&!reelRun){reelRun=true;lastY=scrollY;requestAnimationFrame(reel);}}).observe(r1.parentElement);
   const reel=()=>{
+    if(!reelOn){reelRun=false;return;}
     const dy=scrollY-lastY;lastY=scrollY;vel+=(dy-vel)*.12;
     if(!paused&&!reduce){
       const sp=.6+Math.min(Math.abs(vel)*.35,12);
       off1-=sp;off2+=sp;
-      const w1=r1.scrollWidth/2,w2=r2.scrollWidth/2;
+      const w1=W1,w2=W2;
       if(-off1>w1)off1+=w1; if(off2>0)off2-=w2;
       const sk=Math.max(-12,Math.min(12,vel*.4));
       r1.style.transform=`translateX(${off1}px) skewX(${-sk}deg)`;
@@ -1416,7 +1425,7 @@ footer a:hover{color:var(--text)}
     }
     requestAnimationFrame(reel);
   };
-  off2=-(r2.scrollWidth/2);requestAnimationFrame(reel);
+  off2=-W2;
 
   /* ---------- HDR compare ---------- */
   const cmp=$('#cmp'),rng=$('#cmpRange');
@@ -1424,7 +1433,8 @@ footer a:hover{color:var(--text)}
   rng.addEventListener('input',()=>setX(rng.value));
   if(!reduce){
     let demo=true;const st=performance.now();
-    const sweep=(now)=>{ if(!demo)return; if(!paused){const v=50+28*Math.sin((now-st)/1400);setX(v.toFixed(1));rng.value=v;} requestAnimationFrame(sweep); };
+    let cmpOn=false;new IntersectionObserver(es=>{cmpOn=es[0].isIntersecting;}).observe(cmp);
+    const sweep=(now)=>{ if(!demo)return; if(!paused&&cmpOn){const v=50+28*Math.sin((now-st)/1400);setX(v.toFixed(1));rng.value=v;} requestAnimationFrame(sweep); };
     const vis=new IntersectionObserver(es=>{if(es[0].isIntersecting){requestAnimationFrame(sweep);vis.disconnect();}});vis.observe(cmp);
     ['pointerdown','focus','input'].forEach(ev=>rng.addEventListener(ev,()=>{demo=false;}));
   }
@@ -1481,9 +1491,10 @@ footer a:hover{color:var(--text)}
       cur.textContent='00:'+String(Math.floor(p*10)).padStart(2,'0');
     };
     if(reduce){t=TOTAL;render();return;}
+    let pmOn=true;new IntersectionObserver(es=>{pmOn=es[0].isIntersecting;}).observe(pm);
     const loop=(now)=>{
       if(last===null)last=now;const dt=Math.min(.1,(now-last)/1000);last=now;
-      if(!paused){t+=dt;if(t>TOTAL+1.2){STEPS.forEach(s=>pm.classList.remove(s[0]));void pm.offsetWidth;t=0.3;pm.classList.add('s2');}render();}
+      if(!paused&&pmOn){t+=dt;if(t>TOTAL+1.2){STEPS.forEach(s=>pm.classList.remove(s[0]));void pm.offsetWidth;t=0.3;pm.classList.add('s2');}render();}
       requestAnimationFrame(loop);
     };
     requestAnimationFrame(loop);
@@ -1551,5 +1562,7 @@ footer a:hover{color:var(--text)}
   });
 })();
 </script>
+
+<script>(function(){if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('vx-off',!e.isIntersecting);});},{rootMargin:'200px 0px'});document.querySelectorAll('body>section,body>header,body>footer,body>main>section,#vx-tour').forEach(function(el){io.observe(el);});})();</script>
 </body>
 </html>

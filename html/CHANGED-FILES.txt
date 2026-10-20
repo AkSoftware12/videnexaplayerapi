@@ -1,7 +1,11 @@
-Copy index.html, id, hi, img into the html/ folder (Replace).
-NEW image names (so the old cached images can't show any more):
-  img/v2/music-player-2026.webp  - new Music Player banner (4 phones + queue)
-  img/tour/music-2026.webp       - new music screen inside the phone mockup
-  img/v2/player-controls.webp    - Player Controls banner
-index.html, id/index.html, hi/index.html now point to these new names.
+COMPLETE UPDATE - copy index.html, id, hi, img into the html/ folder (Replace).
+Pages: index.html, id/index.html, hi/index.html
+Images (all new names - tick ALL 6 in the commit):
+  img/v2/gallery-2026-v3.webp      Gallery section (final 4-phone image)
+  img/v2/music-player-2026.webp    Music Player section
+  img/v2/player-controls.webp      Player Controls section
+  img/tour/gallery-albums-2026.webp  NEW gallery screen in "One app. Five things" phone
+  img/tour/gallery-tools-2026.webp   NEW gallery Tools screen in the same phone
+  img/tour/music-2026.webp           music screen in the same phone
+Includes: desktop speed fix, rating section, gallery text, all music changes.
 After push: Cloudflare > Purge Everything.
