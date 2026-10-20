@@ -1,5 +1,7 @@
 Copy index.html, id, hi, img into the html/ folder (Replace).
-1. img/v2/gallery-2026-v3.webp - FINAL Vidnexa Gallery image (tick it in the commit)
-2. index.html, id/index.html, hi/index.html - Gallery section (image + text) + rating section, EN/ID/HI.
-Old gallery-2026.webp / gallery-2026-v2.webp are no longer used - delete them if you copied them.
+NEW image names (so the old cached images can't show any more):
+  img/v2/music-player-2026.webp  - new Music Player banner (4 phones + queue)
+  img/tour/music-2026.webp       - new music screen inside the phone mockup
+  img/v2/player-controls.webp    - Player Controls banner
+index.html, id/index.html, hi/index.html now point to these new names.
 After push: Cloudflare > Purge Everything.
