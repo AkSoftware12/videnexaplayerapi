@@ -1,7 +1,3 @@
-Copy index.html, id, hi, img into the html/ folder (Replace).
-NEW image names (so the old cached images can't show any more):
-  img/v2/music-player-2026.webp  - new Music Player banner (4 phones + queue)
-  img/tour/music-2026.webp       - new music screen inside the phone mockup
-  img/v2/player-controls.webp    - Player Controls banner
-index.html, id/index.html, hi/index.html now point to these new names.
-After push: Cloudflare > Purge Everything.
+Copy index.html, id, hi into the html/ folder (Replace).
+Only change: rating section now has 2 buttons (Get it on Google Play + Rate the app) and new wording, in EN/ID/HI.
+No images changed. After push: Cloudflare > Purge Everything.
