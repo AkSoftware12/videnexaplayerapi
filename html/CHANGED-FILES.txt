@@ -1,5 +1,6 @@
 Copy index.html, id, hi, img into the html/ folder (Replace).
-1. img/v2/gallery-2026.webp  - NEW Vidnexa Gallery image (tick it in the commit)
-2. index.html, id/index.html, hi/index.html - Gallery section: new image, new text, 6 feature cards incl. Album Slideshow (EN/ID/HI).
-   (Also includes the rating-section change from this morning.)
+1. img/v2/gallery-2026-v2.webp - corrected Vidnexa Gallery image (tick it in the commit)
+2. index.html, id/index.html, hi/index.html - Gallery section: image + text (no Resize & crop; Duplicate finder, Enhance to 4K), EN/ID/HI.
+   Also includes the rating-section change.
+If you already copied gallery-2026.webp from the earlier zip, you can delete it - it is no longer used.
 After push: Cloudflare > Purge Everything.
