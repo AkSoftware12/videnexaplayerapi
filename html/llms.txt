@@ -1,0 +1,34 @@
+# Vidnexa Player
+
+> Vidnexa Player is a free Android media player by Authenticode Solution. It plays 4K and 8K HDR video and 200+ formats, with a music player and equalizer, gallery, file manager and Network Player, and needs no sign-up. Download: https://play.google.com/store/apps/details?id=com.vidnexa.videoplayer
+
+## Main pages
+
+- [Home](https://vidnexaplayer.com/): Overview of Vidnexa Player.
+- [Features](https://vidnexaplayer.com/features.html): Every feature in one place.
+- [Privacy Policy](https://vidnexaplayer.com/privacy-policy.html): How the app handles data.
+- [Terms of Use](https://vidnexaplayer.com/terms-of-use.html): Terms for using the app and site.
+
+## Guides (English)
+
+- [Best 4K Video Player for Android: How to Choose (2026)](https://vidnexaplayer.com/blog/best-4k-video-player-android.html): Not every Android phone can play every 4K file. Check what your phone supports, what codecs, bitrate and HDR really mean, and which player fits your needs.
+- [Best Video Player for Android in 2026: Which One Fits You](https://vidnexaplayer.com/blog/best-video-player-android-2026.html): VLC, MX Player, Kodi or an all-in-one app? An honest guide to picking an Android video player by what you actually watch, plus a 5-minute test for any app.
+- [Cast Android to TV Without Chromecast: 2 Ways + Fixes (2026)](https://vidnexaplayer.com/blog/cast-android-to-tv.html): No Chromecast? Mirror Android to Samsung, LG, Fire TV or Roku, or cast from Vidnexa to Google TV. Step-by-step by TV type, plus fixes for common errors.
+- [Vidnexa vs MX Player, VLC + 8 More Video Players (2026)](https://vidnexaplayer.com/blog/compare.html): Vidnexa Player compared side by side with MX Player, VLC, KMPlayer, Kodi and 6 more Android video players: formats, features and extras in 2026.
+- [Vidnexa Equalizer: Best Settings for Headphones (2026)](https://vidnexaplayer.com/blog/equalizer-guide.html): How to use the built-in equalizer in Vidnexa Player — presets, custom bands, and the best settings for headphones, earbuds and speakers.
+- [7 Best MX Player Alternatives for Android in 2026](https://vidnexaplayer.com/blog/mx-player-alternatives-android.html): Looking for an MX Player alternative? 7 Android video players compared, from free open-source apps like VLC and mpv to all-in-one players. Find yours.
+- [How to Open MKV, AVI, MOV &amp; FLV Files on Android (2026)](https://vidnexaplayer.com/blog/open-mkv-avi-mov-flv-android.html): Got an .mkv, .avi, .mov or .flv file your phone won&#x27;t open? What each format is, why it fails, and how to play all four on Android without converting.
+- [How to Play HEVC &amp; MKV Files on Android (4 Steps, 2026)](https://vidnexaplayer.com/blog/play-mkv-hevc-android.html): HEVC or MKV file won&#x27;t open, or plays with no sound? Fix it in 2 minutes with a free HEVC player for Android, plus HEVC vs MKV explained simply.
+- [How to Save Someone&#x27;s WhatsApp Status (Photo &amp; Video) 2026](https://vidnexaplayer.com/blog/save-whatsapp-status.html): Save any WhatsApp status photo or video to your gallery in seconds. Step-by-step for Android, including the .Statuses folder fix. Free app.
+- [Video Plays but No Sound on Android? AC3/EAC3 Fix (2026)](https://vidnexaplayer.com/blog/video-no-sound-android.html): Picture plays but no sound? It&#x27;s usually AC3, E-AC3 or DTS audio your player can&#x27;t decode. The quick fix, plus 4 more things to check on Android.
+- [Video Not Playing on Android? 7 Fixes That Work (2026)](https://vidnexaplayer.com/blog/video-not-playing-android.html): Video won&#x27;t open, has no sound, shows a black screen or stutters? Find your symptom and fix it in minutes with these 7 Android fixes. No converting needed.
+- [Vidnexa vs MX Player: Which Android Player Fits You? (2026)](https://vidnexaplayer.com/blog/vidnexa-vs-mx-player.html): Vidnexa vs MX Player compared honestly — format support, HDR, ads, voice control, screen casting and more — to help you pick the right one.
+
+## Other languages
+
+- [Hindi (हिन्दी)](https://vidnexaplayer.com/hi/)
+- [Indonesian (Bahasa Indonesia)](https://vidnexaplayer.com/id/)
+
+## Contact
+
+- info@vidnexaplayer.com
